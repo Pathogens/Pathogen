@@ -49,4 +49,5 @@ DefaultProperties
     End Object
     Components.Add(BasePlayerMesh)
 	Mesh=BasePlayerMesh
+	CustomGravityScaling=0
 }
