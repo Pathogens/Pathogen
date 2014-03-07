@@ -14,11 +14,19 @@ event PostBeginPlay()
 	super.PostBeginPlay();
 	Mesh.SetActorCollision(true, true); // enable PhysicsAsset collision
 	Mesh.SetTraceBlocking(true, true); // block traces (i.e. anything touching mesh)
+	SetPhysics(PHYS_Flying);
+	//MotionBlurEffect.FullMotionBlur
 }
 
 
 DefaultProperties
 {
+	//bReducedSpeed=true //Slows moving paw so it doesnt overshoot destination
+	//bForceMaxAccel=??Bool // ignores Acceleration component, and forces max AccelRate to drive Pawn at full velocity.
+	//Mass=??Float
+	//bNoWeaponFiring=true //May be useful for maula weapon systems
+	bSimulateGravity=false //May allow use of GamePawn or Pawn
+	bIgnoreForces=true
 	bCanJump=true
 	bCanFly=true
 	BlockRigidBody=true
@@ -27,8 +35,12 @@ DefaultProperties
 	bCollideWorld=true
 	CollisionType=COLLIDE_TouchAll
 	CylinderComponent=CollisionCylinder
-	GroundSpeed=1400
-	AccelRate=10000
+	//MaxPitchLimit=??Int ;		        // limit on view pitching
+	GroundSpeed=1400                    // The maximum ground speed.
+	//AirSpeed=1400                     // The maximum flying speed.
+	//AirControl=??Float                // amount of AirControl available to the pawn
+	//MovementSpeedModifier=??Float     // a modifier that can be used to override the movement 
+	AccelRate=10000                     // max acceleration rate
 
     Begin Object Class=DynamicLightEnvironmentComponent Name=MyLightEnvironment
             bEnabled=TRUE
@@ -49,5 +61,7 @@ DefaultProperties
     End Object
     Components.Add(BasePlayerMesh)
 	Mesh=BasePlayerMesh
-	CustomGravityScaling=0
+	//CustomGravityScaling=0
+	//SimGravityDisabled=true
+	//bSimulateGravity=false
 }
