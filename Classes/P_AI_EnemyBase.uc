@@ -9,6 +9,12 @@
 class P_AI_EnemyBase extends UDKBot;
 
 
+//simulated function MoveNow(int NodeIndex)
+//{
+//	Self.MoveToDirectNonPathPos(PGameInfo(class'WorldInfo'.static.GetWorldInfo().Game).Grid[NodeIndex]);
+//}
+
+
 event Possess(Pawn inPawn, bool bVehicleTransition)
 {
     super.Possess(inPawn, bVehicleTransition);

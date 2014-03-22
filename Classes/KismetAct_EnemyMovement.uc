@@ -1,11 +1,13 @@
 class KismetAct_EnemyMovement extends SequenceAction;
 
 var() array<int> Nodes;
-var UDKPawn Enemy;
+var PEnemyBase Enemy;
+var P_AI_EnemyBase EnemyC;
 
 event Activated()
 {
-	Enemy.Controller.MoveToDirectNonPathPos(PGameInfo(class'WorldInfo'.static.GetWorldInfo().Game).Grid[Nodes[0]]);
+	EnemyC=Enemy.Controller;
+	Enemy.MoveNow(Nodes[RandRange(0,625)]);
 }
 
 

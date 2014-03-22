@@ -10,10 +10,19 @@ class PEnemyBase extends UDKPawn
 	dependson(PPawn)
 	placeable;
 
+var P_AI_EnemyBase EnemyC;
+
 event PostBeginPlay()
 {
 	super.PostBeginPlay();
 	self.SetPhysics(PHYS_Flying);
+}
+
+
+function MoveNow(int NodeIndex)
+{
+	//EnemyC=Controller;
+	Controller<P_AI_EnemyBase>.MoveNow(NodeIndex);
 }
 
 
@@ -23,5 +32,6 @@ DefaultProperties
 	CustomGravityScaling=0
 	bSimulateGravity=false
 	bSimGravityDisabled=true
+	ControllerClass=P_AI_EnemyBase
 
 }
